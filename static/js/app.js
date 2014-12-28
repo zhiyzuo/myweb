@@ -10,10 +10,7 @@ app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/', {
-        templateUrl: 'partials/main.html',
-      }).
-      when('/cities/:city', {
-        templateUrl: 'partials/city-detail.html',
+        templateUrl: 'static/partials/main.html',
       }).
       otherwise({
         redirectTo: '/#'

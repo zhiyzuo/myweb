@@ -35,10 +35,10 @@
 <div class="container">
   <!-- Example row of columns -->
   <div class="row">
-    <div class="col-md-12" ng-controller="CityModalController as city">
+    <div class="col-md-12">
       <h2>Iowa City</h2>
       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-     <button type="button" class="btn btn-default" ng-click="open()">haha</button>
+     <button type="button" class="btn btn-default">haha</button>
    </div>
   </div>
 </div>
@@ -61,12 +61,13 @@
 
   <hr>
 
-  <footer ng-controller="FooterController as footer">
+  <!--<footer ng-controller="FooterController as footer"> -->
+  <footer>
     <p>
         &copy; Made by Zuo, Zhiya 2014 &nbsp;&nbsp;
-        <span class="icon-bar" ng-repeat="sm in footer.socialMedias">
+        <!-- <span class="icon-bar" ng-repeat="sm in footer.socialMedias">
             <a target="_blank" href="{{sm.url}}"><img class="socialIcons" src="{{sm.source}}"/></a>
-        </span>
+        </span> -->
     </p>
 
   </footer>
