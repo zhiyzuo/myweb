@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Facebook",
+        "url": "https://www.facebook.com/zhiyazuo",
+        "icon": "static/icons/fb.ico"
+    },
+
+    {
+        "name": "Gmail",
+        "url": "mailto:zhiyazuo@gmail.com",
+        "icon": "static/icons/gmail.ico"
+    },
+
+    {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/zhiyazuo",
+        "icon": "static/icons/linkedin.ico"
+    },
+
+    {
+        "name": "Twitter",
+        "url": "https://twitter.com/YeeAh27",
+        "icon": "static/icons/twitter.ico"
+    },
+
+    {
+        "name": "Weibo",
+        "url": "http://weibo.com/naroays",
+        "icon": "static/icons/weibo.ico"
+    }
+]
+

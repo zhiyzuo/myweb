@@ -2,8 +2,9 @@
 
 var controllers = angular.module('MyWebControllers', []);
 
-/*controllers.controller('FooterController', [
-    '$scope', 'SocialMediaService', 
-    function($scope, SocialMediaService) {   
-        $scope.socialMedias = SocialMediaService.query();
-}]); */
+controllers.controller('MainController', ['$scope', 'CityService', 'SocialMediaService', 
+    function($scope, CityService, SocialMediaService) {
+        $scope.socialMedias = SocialMediaService.queryAll();
+        $scope.cities = CityService.queryAll();
+        $scope.cityAge = "start";
+}]); 

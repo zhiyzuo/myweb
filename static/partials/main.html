@@ -26,48 +26,26 @@
   </div>
 </div>
 
-<!--
-    <div id="google-map"> 
-
-    </div>
-                -->
-
 <div class="container">
   <!-- Example row of columns -->
   <div class="row">
-    <div class="col-md-12">
-      <h2>Iowa City</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-     <button type="button" class="btn btn-default">haha</button>
-   </div>
+    <div class="col-md-4" ng-repeat="city in cities | orderBy:-cityAge">
+      <img class="circle" align="right" ng-src="{{city.img}}"></img>
+      <h2>{{city.name}}</h2>
+      <p>{{city.bio}}</p>
+    </div>
   </div>
 </div>
-
-
-<div class="container">
-  <!-- Example row of columns -->
-  <div class="row">
-    <div class="col-md-6">
-      <h2>Canton</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-    </div>
-    <div class="col-md-6">
-      <h2>Shanghai</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-   </div>
-  </div>
 
   <hr>
 
   <!--<footer ng-controller="FooterController as footer"> -->
-  <footer>
+  <footer align="center">
     <p>
         &copy; Made by Zuo, Zhiya 2014 &nbsp;&nbsp;
-        <!-- <span class="icon-bar" ng-repeat="sm in footer.socialMedias">
-            <a target="_blank" href="{{sm.url}}"><img class="socialIcons" src="{{sm.source}}"/></a>
-        </span> -->
+        <span class="icon-bar" ng-repeat="sm in socialMedias">
+            <a ng-href="{{sm.url}}" target="_blank"><img class="socialIcons" ng-src="{{sm.icon}}"/></a>
+        </span> 
     </p>
 
   </footer>

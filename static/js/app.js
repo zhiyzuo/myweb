@@ -9,8 +9,9 @@ var app = angular.module('MyWeb', [
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/', {
+      when('/#', {
         templateUrl: 'static/partials/main.html',
+        controller: 'MainController'
       }).
       otherwise({
         redirectTo: '/#'

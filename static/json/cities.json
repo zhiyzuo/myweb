@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Iowa City",
+        "bio": "This is the first time I've been to the States. Everything's new to me! This is a quite, nice town. Love it!",
+        "img": "static/img/iowacity.jpg",
+        "start": 2014
+    }, 
+
+    {
+        "name": "Shanghai",
+        "bio": "I was studying in Tongji University in Shanghai from 2010 to 2014. Big city and I met my best friends here.",
+        "img": "static/img/shanghai.jpg",
+        "start" : 2010
+    },
+
+    {
+        "name": "Guangzhou (Canton)",
+        "bio": "This is the city that I grew up in. Nice people, nice food and nice weather. (A bit wet, I've got to say)",
+        "img": "static/img/guangzhou.jpg",
+        "start" : 1998
+    }
+]
