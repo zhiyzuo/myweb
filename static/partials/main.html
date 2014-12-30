@@ -1,10 +1,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-      hello
-      </button>
-      <a class="navbar-brand" href="#" style="font-family: fantasy">Zuo, Zhiya</a>
+      <a class="navbar-brand" style="font-family: Pacifico; font-size:240%; color: white">Zuo, Zhiya</a>
       </div>
       <div class="navbar-right">
         <ul class="nav navbar-nav navbar-right">
@@ -20,33 +17,63 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
   <div class="container">
-    <h1>Hello, world!</h1>
-    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+    <hr>
+    <h1 style="color: SteelBlue; font-family: 'Chewy', cursive;">{{jumbotron.heading}}</h1>
+    <p style="font-family: 'Indie Flower'; cursive; font-size:200%; color: Tomato">{{jumbotron.words_part1}}
+        <a href="http://www.biz.uiowa.edu/faculty/kanzhao/" target="_blank">{{jumbotron.advisor}}</a>{{jumbotron.words_part2}}</p>
   </div>
 </div>
 
 <div class="container">
-  <!-- Example row of columns -->
-  <div class="row">
-    <div class="col-md-4" ng-repeat="city in cities | orderBy:-cityAge">
-      <img class="circle" align="right" ng-src="{{city.img}}"></img>
-      <h2>{{city.name}}</h2>
-      <p>{{city.bio}}</p>
+    <div class="row">
+        <div class="col-md-4" ng-repeat="city in cities | orderBy:-cityAge">
+            <h2 align="center" tooltip="Click me or the image for more!" tooltip-placement="top" id={{city.abbr}} style="font-family: 'Rock Salt'; cursive">{{city.name}}</h2>
+            <div align="center">
+                <img class="circle" ng-src="{{city.img}}" ng-click="selectCity(city.name)" ng-model="city.name" 
+                        tooltip="Click me or the image for more!" tooltip-placement="bottom"/>
+            </div>
+        </div>
     </div>
-  </div>
+    <br>
+    <div class="row">
+        <div ng-repeat="city in cities">
+           <div  class="animate-if" ng-if="city.collapsed">
+              <div class="container">
+
+                <p style="font-family: 'Shadows Into Light'; cursive; font-size:170%;" id={{city.abbr}}>{{city.bio}}</p>
+
+                <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map> 
+
+              </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-  <hr>
 
-  <!--<footer ng-controller="FooterController as footer"> -->
-  <footer align="center">
-    <p>
-        &copy; Made by Zuo, Zhiya 2014 &nbsp;&nbsp;
-        <span class="icon-bar" ng-repeat="sm in socialMedias">
-            <a ng-href="{{sm.url}}" target="_blank"><img class="socialIcons" ng-src="{{sm.icon}}"/></a>
-        </span> 
-    </p>
+<hr>
 
-  </footer>
+<div class="container">
+    <footer align="center">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6" style="color: White">
+                &copy; Made by Zuo, Zhiya 2014 &nbsp;&nbsp;
+                <span class="icon-bar" ng-repeat="sm in socialMedias">
+                    <a ng-href="{{sm.url}}" target="_blank" tooltip={{sm.name}} tooltip-placement="bottom">
+                        <img class="socialIcons" ng-src="{{sm.icon}}"/>
+                    </a>
+                </span> 
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </footer>
 </div>
+
+<!-- Tooltip JavaScript -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('[data-toggle=tooltip]').tooltip();
+    }); 
+</script>
+

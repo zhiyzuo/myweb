@@ -1,0 +1,74 @@
+.socialIcons {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.circle {
+    -webkit-border-radius: 50em;
+    -moz-border-radius: 50em;
+    border-radius: 50em;
+    width: 300px;
+    height: 170px;
+}
+
+.tooltip-inner {
+    text-align: center;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 10px;
+    background-color: #505050;
+    font-size: 18px;
+}
+
+a:link {
+     text-decoration: none;   
+     color: LightCoral;
+}
+
+a:visited {
+     text-decoration: none;   
+     color: Tomato;
+}
+
+a:hover {
+     text-decoration: none;   
+     color: Red;
+}
+
+.jumbotron {
+    height: 350px;    
+}
+
+.mainBackground {
+    background: url("../img/bg1.png") center center
+}
+
+footer {
+    margin-bottom: 50px;
+    margin-top: 25px;
+}
+
+#ic {
+    color: GoldenRod;
+}
+
+#gz {
+    color: MediumSeaGreen;
+}
+
+#sh {
+    color: Thistle;
+}
+
+.well {
+    background: url("../img/well_bg.png") center center;    
+    border-style: none;
+}
+
+.angular-google-map-container { 
+    height: 300px; 
+    border-radius: 25px;
+}
+
+.jumbotron{padding:30px 15px;margin-bottom:30px;color:inherit;background-image:url("../img/jumbotronbackground.png")}.jumbotron h1,.jumbotron .h1{color:inherit}.jumbotron p{margin-bottom:15px;font-size:21px;font-weight:200}.jumbotron>hr{border-top-color:#d5d5d5}.container .jumbotron,.container-fluid .jumbotron{border-radius:6px}.jumbotron .container{max-width:100%}@media screen and (min-width:768px){.jumbotron{padding:48px 0}.container .jumbotron,.container-fluid .jumbotron{padding-right:60px;padding-left:60px}.jumbotron h1,.jumbotron .h1{font-size:63px}}

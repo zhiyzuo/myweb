@@ -2,6 +2,13 @@
 
 var services = angular.module('MyWebServices', ['ngResource']);
 
+services.factory('JumbotronService', ['$resource',
+  function($resource){
+    return $resource('static/json/jumbotron.json', {}, {
+      query: {method:'GET', isArray:false}
+    });
+  }]);
+
 services.factory('SocialMediaService', ['$resource',
   function($resource){
     return $resource('static/json/:socialMediaID.json', {}, {

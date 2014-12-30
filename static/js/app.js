@@ -2,21 +2,30 @@
 
 var app = angular.module('MyWeb', [
     'ngRoute',
+    'ngAnimate',
     'MyWebControllers',
-    'MyWebServices'
+    'MyWebServices',
+    'ui.bootstrap',
+    'uiGmapgoogle-maps'
 ]);
 
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/#', {
+      when('/', {
         templateUrl: 'static/partials/main.html',
         controller: 'MainController'
       }).
       otherwise({
-        redirectTo: '/#'
+        redirectTo: '/'
       });
   }]);
 
-
+app.config(function(uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+        key: 'AIzaSyAIlukEKeQ9vJHNF7F89_IPvrD5Fa5Zi3A',
+        v: '3.17',
+        libraries: 'weather,geometry,visualization'
+    });
+})
 

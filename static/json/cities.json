@@ -1,22 +1,40 @@
 [
     {
         "name": "Iowa City",
-        "bio": "This is the first time I've been to the States. Everything's new to me! This is a quite, nice town. Love it!",
+        "bio": "This is the first time I've been to the States. Everything's new to me. This is a quite, nice town. Love it! I witnessed the biggest snow in my life here. And I often see deer and squirrels around in the backyard!",
         "img": "static/img/iowacity.jpg",
-        "start": 2014
+        "start": 2014,
+        "abbr": "ic",
+        "collpased": false,
+        "latLong": {
+            "latitude": 41.661128,    
+            "longitude": -91.530168    
+        }
     }, 
 
     {
         "name": "Shanghai",
-        "bio": "I was studying in Tongji University in Shanghai from 2010 to 2014. Big city and I met my best friends here.",
+        "bio": "I studied Automation in Tongji University in Shanghai from 2010 to 2014. A big city which is similar to Guangzhou. It's quite cold and there's no heating devices. Air conditioners are not helping that much...From here, I spent the four years far away from home and achieved my dream of studying in the U,S.",
         "img": "static/img/shanghai.jpg",
-        "start" : 2010
+        "start" : 2010,
+        "abbr": "sh",
+        "collpased": false,
+        "latLong": {
+            "latitude": 31.230416,    
+            "longitude": 121.473701    
+        }
     },
 
     {
-        "name": "Guangzhou (Canton)",
-        "bio": "This is the city that I grew up in. Nice people, nice food and nice weather. (A bit wet, I've got to say)",
+        "name": "Guangzhou",
+        "bio": "This is the city that I grew up in. Nice people, nice food and nice weather (A bit wet, I've got to say). You should defintely come here if you wanna travel in China. Guangzhou will rock your knowledge of China (A lot of other cities too XD)!",
         "img": "static/img/guangzhou.jpg",
-        "start" : 1998
+        "start" : 1998,
+        "abbr": "gz",
+        "collpased": false,
+        "latLong": {
+            "latitude": 23.129110,    
+            "longitude": 113.264385    
+        }
     }
 ]
