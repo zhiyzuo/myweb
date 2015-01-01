@@ -22,3 +22,14 @@ services.factory('CityService', ['$resource',
       queryAll: {method:'GET', params:{cityID:'cities'}, isArray:true},
     });
   }]);
+
+services.factory('ContactService', ['$http',
+    //TODO: add http service here
+  ]);
+
+services.factory('AboutService', ['$resource',
+  function($resource){
+    return $resource('static/json/abouts.json', {}, {
+      queryAll: {method:'GET', isArray:true},
+    });
+  }]);

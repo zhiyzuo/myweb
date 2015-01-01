@@ -1,3 +1,5 @@
+
+
 .socialIcons {
     height: 30px;
     width: 30px;
@@ -23,7 +25,7 @@
 
 a:link {
      text-decoration: none;   
-     color: LightCoral;
+     color: GoldenRod;
 }
 
 a:visited {
@@ -45,8 +47,8 @@ a:hover {
 }
 
 footer {
-    margin-bottom: 50px;
-    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-top: 20px;
 }
 
 #ic {
@@ -61,14 +63,57 @@ footer {
     color: Thistle;
 }
 
-.well {
-    background: url("../img/well_bg.png") center center;    
-    border-style: none;
-}
-
 .angular-google-map-container { 
     height: 300px; 
     border-radius: 25px;
+}
+
+.googleMapsMarker {
+    font-size: 20px;
+    font-family: "Shadows Into Light", cursive;
+    font-weight: bold;
+    color: DarkCyan;
+    white-space: nowrap;
+    text-align: center;
+    border: 2px solid;
+    background-color: LightBlue;
+    width: 400px;
+}
+
+.contactForm {
+    margin-top: 60px;   
+    margin-bottom: 30px;
+    width: 60%;
+}
+
+.fa_customized {
+    position: relative;
+    color: MediumTurquoise;
+    top: -3px;
+}
+
+.about {
+    margin-top: 40px;   
+    margin-bottom: 30px;
+    width: 80%;
+}
+
+.aboutDiv {
+    border-radius: 20px;
+    background: url("../img/bg.png");
+    font-family: 'Handlee', cursive;
+    font-size: 20px;
+    color: MistyRose;
+    padding: 10px;
+}
+
+.modalTitle {
+    font-family: 'Rock Salt', cursive;
+}
+
+.modalContent {
+    font-family: 'Chewy', cursive;
+    font-size: 20px;
 }
 
 .jumbotron{padding:30px 15px;margin-bottom:30px;color:inherit;background-image:url("../img/jumbotronbackground.png")}.jumbotron h1,.jumbotron .h1{color:inherit}.jumbotron p{margin-bottom:15px;font-size:21px;font-weight:200}.jumbotron>hr{border-top-color:#d5d5d5}.container .jumbotron,.container-fluid .jumbotron{border-radius:6px}.jumbotron .container{max-width:100%}@media screen and (min-width:768px){.jumbotron{padding:48px 0}.container .jumbotron,.container-fluid .jumbotron{padding-right:60px;padding-left:60px}.jumbotron h1,.jumbotron .h1{font-size:63px}}

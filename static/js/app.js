@@ -16,6 +16,14 @@ app.config(['$routeProvider',
         templateUrl: 'static/partials/main.html',
         controller: 'MainController'
       }).
+      when('/contact', {
+        templateUrl: 'static/partials/contact.html',
+        controller: 'ContactController'
+      }).
+      when('/about', {
+        templateUrl: 'static/partials/about.html',
+        controller: 'AboutController'
+      }).
       otherwise({
         redirectTo: '/'
       });

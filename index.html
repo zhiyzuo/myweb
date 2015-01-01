@@ -22,9 +22,12 @@
     <link href='http://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
 
     <!-- Font Awesome -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Angular Animation CSS -->
     <link href="static/css/animation.css" rel="stylesheet">
@@ -42,8 +45,46 @@
 
   <body class="mainBackground">
 
+    <div ng-controller="NavController as nav">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" style="font-family: Pacifico; font-size:240%; color: white">Zuo, Zhiya</a>
+              </div>
+              <div class="navbar-right">
+                <ul class="nav navbar-nav navbar-right">
+                  <li role="presentation"><a href="" ng-click="goToHome()">Home</a></li>
+                  <li role="presentation"><a href="" ng-click="goToContact()">Contact</a></li>
+                  <li role="presentation"><a href="" ng-click="goToAbout()">About</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+    </div>
+
+    <br>
 
     <div ng-view></div>
+
+
+    <hr>
+
+    <footer align="center" ng-controller="FooterController as footer">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6" style="color: White">
+                <i class="fa fa-copyright"></i> Made by Zuo, Zhiya 2014 - 2015 &nbsp;&nbsp;
+                <span class="icon-bar" ng-repeat="sm in socialMedias">
+                    <a ng-href="{{sm.url}}" target="_blank" tooltip={{sm.name}} tooltip-placement="top">
+                        <img class="socialIcons" ng-src="{{sm.icon}}"/>
+                    </a>
+                </span> 
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </footer>
+
 
     <!-- Core JavaScript 
     <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>

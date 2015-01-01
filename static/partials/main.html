@@ -1,18 +1,3 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" style="font-family: Pacifico; font-size:240%; color: white">Zuo, Zhiya</a>
-      </div>
-      <div class="navbar-right">
-        <ul class="nav navbar-nav navbar-right">
-          <li role="presentation" class="active"><a href="#">Home</a></li>
-          <li role="presentation"><a href="#">About</a></li>
-          <li role="presentation"><a href="#">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
@@ -27,10 +12,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4" ng-repeat="city in cities | orderBy:-cityAge">
-            <h2 align="center" tooltip="Click me or the image for more!" tooltip-placement="top" id={{city.abbr}} style="font-family: 'Rock Salt'; cursive">{{city.name}}</h2>
-            <div align="center">
-                <img class="circle" ng-src="{{city.img}}" ng-click="selectCity(city.name)" ng-model="city.name" 
-                        tooltip="Click me or the image for more!" tooltip-placement="bottom"/>
+            <h2 align="center" id={{city.abbr}} style="font-family: 'Rock Salt'; cursive">{{city.name}}</h2>
+            <div align="center" tooltip="Click me for more!" tooltip-placement="bottom" >
+                <img class="circle" ng-src="{{city.img}}" ng-click="selectCity(city.name)" ng-model="city.name" />
             </div>
         </div>
     </div>
@@ -40,40 +24,16 @@
            <div  class="animate-if" ng-if="city.collapsed">
               <div class="container">
 
-                <p style="font-family: 'Shadows Into Light'; cursive; font-size:170%;" id={{city.abbr}}>{{city.bio}}</p>
+                <p style="font-family: 'Shadows Into Light'; cursive; font-size:170%;" id={{city.abbr}}>{{city.bio}} As you can see, the pin in the map is my school.</p>
 
-                <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map> 
+                <ui-gmap-google-map center='map.center' zoom='map.zoom' options="options">
+
+                    <ui-gmap-marker coords="marker.coords" options="marker.options" idkey="marker.id" icon="marker.icon"> </ui-gmap-marker>
+
+                </ui-gmap-google-map> 
 
               </div>
             </div>
         </div>
     </div>
 </div>
-
-
-<hr>
-
-<div class="container">
-    <footer align="center">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6" style="color: White">
-                &copy; Made by Zuo, Zhiya 2014 &nbsp;&nbsp;
-                <span class="icon-bar" ng-repeat="sm in socialMedias">
-                    <a ng-href="{{sm.url}}" target="_blank" tooltip={{sm.name}} tooltip-placement="bottom">
-                        <img class="socialIcons" ng-src="{{sm.icon}}"/>
-                    </a>
-                </span> 
-            </div>
-            <div class="col-md-3"></div>
-        </div>
-    </footer>
-</div>
-
-<!-- Tooltip JavaScript -->
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('[data-toggle=tooltip]').tooltip();
-    }); 
-</script>
-
