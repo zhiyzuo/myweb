@@ -102,6 +102,9 @@ controllers.controller('ContactController', ['$scope', '$http', '$modal', functi
             resolve: {
               modalWindow: function () {
                 return $scope.modalWindow;
+              },
+              sendStatus: function() {
+                return true;    
               }
             }
          });
@@ -119,6 +122,9 @@ controllers.controller('ContactController', ['$scope', '$http', '$modal', functi
             resolve: {
               modalWindow: function () {
                 return $scope.modalWindow;
+              },
+              sendStatus: function() {
+                return false;    
               }
             }
           });
@@ -128,11 +134,14 @@ controllers.controller('ContactController', ['$scope', '$http', '$modal', functi
 
 }]); 
 
-controllers.controller('SendModalController', ['$scope', '$location', '$modalInstance', 'modalWindow', function($scope, $location, $modalInstance, modalWindow) {
+controllers.controller('SendModalController', ['$scope', '$location', '$modalInstance', 'modalWindow', 'sendStatus',
+function($scope, $location, $modalInstance, modalWindow, sendStatus) {
     $scope.modalWindow = modalWindow;
     $scope.ok = function () {
       $modalInstance.close();
-      $location.path("/");
+      if(sendStatus) {
+          $location.path("/");
+      }
     };
 }]); 
 
