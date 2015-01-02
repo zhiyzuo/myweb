@@ -18,7 +18,7 @@
       <div class="form-group">
         <label for="inputEmail" class="col-sm-2 control-label"><i class="fa fa-envelope-o fa-2x fa_customized"></i></label>
         <div class="col-sm-9">
-          <input type="email" class="form-control" id="inputEmail" placeholder="Email" ng-model="contactForm.email">
+          <input type="email" class="form-control" id="inputEmail" typeahead="email for email in emails | filter:$viewValue:emailTypeAhead" placeholder="Email" ng-model="contactForm.email" typeahead-on-select="onSelect()">
         </div>
       </div>
 

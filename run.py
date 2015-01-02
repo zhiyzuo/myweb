@@ -23,10 +23,13 @@ def init():
 @app.route("/contact" ,methods=['POST'])
 def contactMe():
     message = json.loads(request.data)
+    print message
     msg = Message("Message Confirmation",
                   sender=message["email"],
                   recipients=[message["email"]])
-    msg.body = "I've received your message. Thank you and I will reply as soon as possible!"
+    msg.body = "Hi, {}, \n\nI've received your message with subject: {}.\
+     \n\nThank you and I will reply as soon as possible!\n\nBest,\n Zhiya".format(message["name"], message["subject"])
+
     mail.send(msg)
     return "received!"
 

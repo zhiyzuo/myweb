@@ -60,11 +60,34 @@ controllers.controller('MainController', ['$scope', 'CityService', 'JumbotronSer
 
 controllers.controller('ContactController', ['$scope', '$http', '$modal', function($scope, $http, $modal) {
     $scope.contactForm = {};
-    //TODO: Email Typeahead
+    $scope.contactForm.email = "";
+
+    /* Email Typeahead */
+    $scope.emails = ['gmail.com', 'yahoo.com', 'hotmail.com', 'sina.com', 'sohu.com', '163.com', 'qq.com', 'uiowa.edu', 'tongji.edu.cn'];
+    
+    $scope.emailTypeAhead = function(email, viewValue) {
+        var atPos = viewValue.indexOf("@");
+        $scope.emailName = viewValue.substr(0, atPos);
+        var emailDomain = viewValue.substr(atPos+1, viewValue.length);
+        return (atPos > -1) & (email.substr(0, emailDomain.length).toLowerCase() == viewValue.substr(atPos+1, viewValue.length).toLowerCase())
+    }
+
+    $scope.onSelect = function() {
+        // complete the whole address
+        $scope.contactForm.email = $scope.emailName + "@" + $scope.contactForm.email;
+    }
+    /* * * * * * * * * */
+
 
     $scope.modalWindow = {};
 
     $scope.send = function() {
+
+      var d = new Date();
+      // set timezone
+      d.setTime(d.getTime() - d.getTimezoneOffset()*60*1000);
+      $scope.contactForm.timestamp = d.toJSON();
+
 	  $http.post('/contact', $scope.contactForm)
 		.success(function(data) {
 
@@ -105,10 +128,11 @@ controllers.controller('ContactController', ['$scope', '$http', '$modal', functi
 
 }]); 
 
-controllers.controller('SendModalController', ['$scope', '$modalInstance', 'modalWindow', function($scope, $modalInstance, modalWindow) {
+controllers.controller('SendModalController', ['$scope', '$location', '$modalInstance', 'modalWindow', function($scope, $location, $modalInstance, modalWindow) {
     $scope.modalWindow = modalWindow;
     $scope.ok = function () {
       $modalInstance.close();
+      $location.path("/");
     };
 }]); 
 
