@@ -12,9 +12,9 @@ app.config.update(dict(
     MAIL_PORT = 465,
     MAIL_USE_TLS = False,
     MAIL_USE_SSL = True,
-    MAIL_USERNAME = 'zhiyazuo@gmail.com',
-    MAIL_PASSWORD = 'bwyqoxmwgpqxirjs',
-    MAIL_DEFAULT_SENDER = 'zhiyazuo@gmail.com',
+    MAIL_USERNAME = 'webofzuo@gmail.com',
+    MAIL_PASSWORD = 'webofzuo19491001',
+    MAIL_DEFAULT_SENDER = 'webofzuo@gmail.com',
 ))
 
 mail = Mail(app)
@@ -32,10 +32,6 @@ def contactMe():
     content = message["content"]
     subject = message["subject"]
 
-    m = models.Msg(name, email, timestamp, content, subject)
-    db_session.add(m)
-    db_session.commit()
-
     confirmation = Message("Message Confirmation",
                   recipients=[email])
     confirmation.body = 'Hi, {}, \n\nI\'ve received your message on "{}".\
@@ -49,6 +45,9 @@ def contactMe():
     msg.body = "Subject: {}\n\n Content:\n {}".format(subject, content)
     mail.send(msg)
 
+    m = models.Msg(name, email, timestamp, content, subject)
+    db_session.add(m)
+    db_session.commit()
 
     return "received!"
 
