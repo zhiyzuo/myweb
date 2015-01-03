@@ -1,3 +1,4 @@
+# -- coding: utf-8 --
 from flask import Flask, make_response, request
 from flask_mail import Mail, Message
 #from flask.ext.sqlalchemy import SQLAlchemy
@@ -26,16 +27,16 @@ def init():
 @app.route("/contact" ,methods=['POST'])
 def contactMe():
     message = json.loads(request.data)
-    name = message["name"]
-    email = message["email"]
-    timestamp = message["timestamp"]
-    content = message["content"]
-    subject = message["subject"]
+    name = message["name"].encode("utf-8")
+    email = message["email"].encode("utf-8")
+    timestamp = message["timestamp"].encode("utf-8")
+    content = message["content"].encode("utf-8")
+    subject = message["subject"].encode("utf-8")
 
     confirmation = Message("Message Confirmation",
                   recipients=[email])
     confirmation.body = 'Hi, {}, \n\nI\'ve received your message on "{}".\
-     \n\nThank you and I will reply as soon as possible!\n\nBest,\n Zhiya'.format(message["name"], message["subject"])
+     \n\nThank you and I will reply as soon as possible!\n\nBest,\n Zhiya'.format(name, subject)
 
     mail.send(confirmation)
 

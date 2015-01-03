@@ -53,9 +53,9 @@
               </div>
               <div class="navbar-right">
                 <ul class="nav navbar-nav navbar-right">
-                  <li role="presentation"><a href="" ng-click="goToHome()">Home</a></li>
-                  <li role="presentation"><a href="" ng-click="goToContact()">Contact</a></li>
-                  <li role="presentation"><a href="" ng-click="goToAbout()">About</a></li>
+                  <li role="presentation"><a href="" ng-click="goToHome()">{{navTerms.home}}</a></li>
+                  <li role="presentation"><a href="" ng-click="goToContact()">{{navTerms.contact}}</a></li>
+                  <li role="presentation"><a href="" ng-click="goToAbout()">{{navTerms.about}}</a></li>
                 </ul>
               </div>
             </div>
@@ -77,11 +77,17 @@
                 <i class="fa fa-copyright"></i> Made by Zuo, Zhiya 2014 - 2015 &nbsp;&nbsp;
                 <span class="icon-bar" ng-repeat="sm in socialMedias">
                     <a ng-href="{{sm.url}}" target="_blank" tooltip={{sm.name}} tooltip-placement="top">
-                        <img class="socialIcons" ng-src="{{sm.icon}}"/>
+                        <img class="myIcons" ng-src="{{sm.icon}}"/>
                     </a>
                 </span> 
             </div>
-            <div class="col-md-3"></div>
+            <div class="col-md-3" align="right" style="padding-right: 40px">
+                <span class="icon-bar" ng-repeat="lang in languages">
+                    <a ng-href="" tooltip={{lang.name}} tooltip-placement="top" ng-click="switchLang(lang.click)">
+                        <img class="myIcons" ng-src="{{lang.icon}}"/>
+                    </a>
+                </span> 
+            </div>
         </div>
     </footer>
 

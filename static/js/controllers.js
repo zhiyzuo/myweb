@@ -2,27 +2,88 @@
 
 var controllers = angular.module('MyWebControllers', []);
 
-controllers.controller('NavController', ['$scope','$location', function($scope, $location) {
+controllers.controller('NavController', ['$scope','$location', 'NavService', function($scope, $location, NavService) {
+// {{{ Navigation bar controller
+
+    if($location.path().indexOf('cn') > -1) {
+        $scope.navTerms = NavService.query_cn();
+    } else {
+        $scope.navTerms = NavService.query();
+    }
 
     $scope.goToAbout = function() {
-        $location.path("/about"); 
+        var currLoc = $location.path();
+        console.log("currLoc: " + currLoc);
+
+       if (currLoc.indexOf('cn') > -1) {
+            var toLoc = "/cn/about";
+        } else {
+            var toLoc = "about";
+        }
+        console.log("go to Loc: " + toLoc);
+        $location.path(toLoc); 
     };
+    
     $scope.goToContact = function() {
-        $location.path("/contact"); 
+        var currLoc = $location.path();
+        console.log("currLoc: " + currLoc);
+
+       if (currLoc.indexOf('cn') > -1) {
+            var toLoc = "/cn/contact";
+        } else {
+            var toLoc = "contact";
+        }
+        console.log("go to Loc: " + toLoc);
+        $location.path(toLoc); 
     };
     $scope.goToHome = function() {
-        $location.path("/"); 
+        var currLoc = $location.path();
+        console.log("currLoc: " + currLoc);
+
+       if (currLoc.indexOf('cn') > -1) {
+            var toLoc = "/cn";
+        } else {
+            var toLoc = "/";
+        }
+        console.log("go to Loc: " + toLoc);
+        $location.path(toLoc); 
     };
+// }}}
 }]); 
 
-controllers.controller('FooterController', ['$scope', 'SocialMediaService', function($scope, SocialMediaService) {
+controllers.controller('FooterController', ['$scope', '$location', '$window', 'SocialMediaService', 'LanguageService', function($scope, $location, $window, SocialMediaService, LanguageService) {
+// {{{ Footer controller
     $scope.socialMedias = SocialMediaService.queryAll();
+    $scope.languages = LanguageService.queryAll();
+
+    $scope.switchLang = function(lang) {
+      var currLoc = $location.path();
+      var is_cn = (currLoc.indexOf("cn") > -1);
+      if (lang==="cn") {
+          if (!is_cn) {
+            $location.path("/cn" + currLoc);
+            $window.location.reload();
+          };
+      } else {
+          if (is_cn) {
+            $location.path(currLoc.substring(3, currLoc.length));
+            $window.location.reload();
+          };
+      };
+    };
+// }}}
 }]); 
 
 controllers.controller('MainController', ['$scope', 'CityService', 'JumbotronService', 'uiGmapGoogleMapApi', '$location',
     function($scope, CityService, JumbotronService, uiGmapGoogleMapApi, $location) {
-        $scope.jumbotron = JumbotronService.query();
-        $scope.cities = CityService.queryAll();
+// {{{ Main page controller
+        if($location.path() === '/cn') {
+            $scope.jumbotron = JumbotronService.query_cn();
+            $scope.cities = CityService.query_cn();
+        } else {
+            $scope.jumbotron = JumbotronService.query();
+            $scope.cities = CityService.query();
+        }
         $scope.cityAge = "start";
 
         $scope.jumpTo = false;
@@ -131,20 +192,120 @@ controllers.controller('ContactController', ['$scope', '$http', '$modal', functi
 
         })
     };
+// }}}
 
+}]); 
+
+controllers.controller('ContactController', ['$scope', '$http', '$modal', '$location', 'ContactService', function($scope, $http, $modal, $location, ContactService) {
+// {{{ Contact page controller
+
+    if($location.path() === '/cn/contact') {
+        $scope.content = ContactService.query_cn();
+    } else {
+        $scope.content = ContactService.query();
+    }
+
+    $scope.contactForm = {};
+    $scope.contactForm.email = "";
+
+/* Email Typeahead */ 
+    $scope.emails = ['gmail.com', 'yahoo.com', 'hotmail.com', 'sina.com', 'sohu.com', '163.com', 'qq.com', 'uiowa.edu', 'tongji.edu.cn'];
+    
+    $scope.emailTypeAhead = function(email, viewValue) {
+        var atPos = viewValue.indexOf("@");
+        $scope.emailName = viewValue.substr(0, atPos);
+        var emailDomain = viewValue.substr(atPos+1, viewValue.length);
+        return (atPos > -1) & (email.substr(0, emailDomain.length).toLowerCase() == viewValue.substr(atPos+1, viewValue.length).toLowerCase())
+    }
+
+    $scope.onSelect = function() {
+        // complete the whole address
+        $scope.contactForm.email = $scope.emailName + "@" + $scope.contactForm.email;
+    }
+/* * * * * * * * * */
+
+
+    $scope.modalWindow = {};
+
+    $scope.send = function() {
+
+      var d = new Date();
+      // set timezone
+      d.setTime(d.getTime() - d.getTimezoneOffset()*60*1000);
+      $scope.contactForm.timestamp = d.toJSON();
+
+	  $http.post('/contact', $scope.contactForm)
+		.success(function(data) {
+
+          $scope.modalWindow.title = $scope.content.modal.title;
+          $scope.modalWindow.content = $scope.content.modal.content;
+          $scope.modalWindow.button_content = $scope.content.modal.button;
+          $scope.modalWindow.color = {"color":"LightSeaGreen"};
+          $scope.modalWindow.button = "btn-primary";
+
+          var modalInstance = $modal.open({
+            templateUrl: '../static/partials/sendModal.html',
+            controller: 'SendModalController',
+            resolve: {
+              modalWindow: function () {
+                return $scope.modalWindow;
+              },
+              sendStatus: function() {
+                return true;    
+              }
+            }
+         });
+       })
+		.error(function(data) {
+
+          $scope.modalWindow.title = $scope.content.error.title;
+          $scope.modalWindow.content = $scope.content.error.content;
+          $scope.modalWindow.button_content = $scope.content.error.button;
+          $scope.modalWindow.color = {"color":"OrangeRed"};
+          $scope.modalWindow.button = "btn-warning";
+
+          var modalInstance = $modal.open({
+            templateUrl: '../static/partials/sendModal.html',
+            controller: 'SendModalController',
+            resolve: {
+              modalWindow: function () {
+                return $scope.modalWindow;
+              },
+              sendStatus: function() {
+                return false;    
+              }
+            }
+          });
+
+        })
+    };
+// }}}
 }]); 
 
 controllers.controller('SendModalController', ['$scope', '$location', '$modalInstance', 'modalWindow', 'sendStatus',
 function($scope, $location, $modalInstance, modalWindow, sendStatus) {
+// {{{ Send message modal controller
     $scope.modalWindow = modalWindow;
     $scope.ok = function () {
       $modalInstance.close();
       if(sendStatus) {
-          $location.path("/");
+          var currLoc = $location.path();
+          if (currLoc.indexOf('cn') > -1) {
+              $location.path("/cn");
+          } else {
+              $location.path("/");
+          }
       }
     };
+// }}}
 }]); 
 
-controllers.controller('AboutController', ['$scope', 'AboutService', function($scope, AboutService) {
-    $scope.abouts = AboutService.queryAll();
+controllers.controller('AboutController', ['$scope', '$location', 'AboutService', function($scope, $location, AboutService) {
+// {{{ About page controller
+    if($location.path() === '/cn/about') {
+        $scope.abouts = AboutService.query_cn();
+    } else {
+        $scope.abouts = AboutService.query();
+    }
+// }}}
 }]); 

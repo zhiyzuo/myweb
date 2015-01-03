@@ -16,11 +16,23 @@ app.config(['$routeProvider',
         templateUrl: 'static/partials/main.html',
         controller: 'MainController'
       }).
+      when('/cn', {
+        templateUrl: 'static/partials/main.html',
+        controller: 'MainController'
+      }).
       when('/contact', {
         templateUrl: 'static/partials/contact.html',
         controller: 'ContactController'
       }).
+      when('/cn/contact', {
+        templateUrl: 'static/partials/contact.html',
+        controller: 'ContactController'
+      }).
       when('/about', {
+        templateUrl: 'static/partials/about.html',
+        controller: 'AboutController'
+      }).
+      when('/cn/about', {
         templateUrl: 'static/partials/about.html',
         controller: 'AboutController'
       }).

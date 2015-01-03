@@ -1,7 +1,7 @@
 [
     {
         "name": "Iowa City",
-        "bio": "This is the first time I've been to the States. Everything's new to me. This is a quite, nice town. Love it! I witnessed the biggest snow in my life here. And I often see deer and squirrels around in the backyard!",
+        "bio": "This is the first time I've been to the States. Everything's new to me. This is a quite, nice town. Love it! I witnessed the biggest snow in my life here. And I often see deer and squirrels around in the backyard! As you can see, the pin in the map is my school.",
         "img": "static/img/iowacity.jpg",
         "start": 2014,
         "abbr": "ic",
@@ -20,7 +20,7 @@
 
     {
         "name": "Shanghai",
-        "bio": "I studied Automation in Tongji University in Shanghai from 2010 to 2014, a big city which is similar to Guangzhou. It's quite cold and there's no heating devices. Air conditioners are not helping that much...From here, I spent the four years far away from home and achieved my dream of studying in the U,S.",
+        "bio": "I studied Automation in Tongji University in Shanghai from 2010 to 2014, a big city which is similar to Guangzhou. It's quite cold and there's no heating devices. Air conditioners are not helping that much...From here, I spent the four years far away from home and achieved my dream of studying in the U,S. As you can see, the pin in the map is my school.",
         "img": "static/img/shanghai.jpg",
         "start" : 2010,
         "abbr": "sh",
@@ -39,7 +39,7 @@
 
     {
         "name": "Guangzhou",
-        "bio": "This is the city where I grew up. Nice people, nice food and nice weather (A bit wet, I've got to say). You should defintely come here if you wanna travel in China. Guangzhou will rock your knowledge of China (A lot of other cities too XD)!",
+        "bio": "This is the city where I grew up. Nice people, nice food and nice weather (A bit wet, I've got to say). You should defintely come here if you wanna travel in China. Guangzhou will rock your knowledge of China (A lot of other cities too XD)! As you can see, the pin in the map is my school.",
         "img": "static/img/guangzhou.jpg",
         "start" : 1998,
         "abbr": "gz",
