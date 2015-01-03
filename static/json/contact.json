@@ -9,7 +9,7 @@
                 "content": "Thank you for your message! You will receive a confirmation email.",    
                 "title": "Successful!",
                 "button": "OK"
-            }
+            },
     "error": {
                 "content": "Please check your input.",    
                 "title": "Error!",
