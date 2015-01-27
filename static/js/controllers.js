@@ -2,13 +2,13 @@
 
 var controllers = angular.module('MyWebControllers', []);
 
-controllers.controller('NavController', ['$scope','$location', 'NavService', function($scope, $location, NavService) {
+controllers.controller('NavController', ['$scope','$location', 'QueryService', function($scope, $location, QueryService) {
 // {{{ Navigation bar controller
 
     if($location.path().indexOf('cn') > -1) {
-        $scope.navTerms = NavService.query_cn();
+        $scope.navTerms = QueryService.query_navbar_cn();
     } else {
-        $scope.navTerms = NavService.query();
+        $scope.navTerms = QueryService.query_navbar();
     }
 
     $scope.goToAbout = function() {
@@ -51,10 +51,10 @@ controllers.controller('NavController', ['$scope','$location', 'NavService', fun
 // }}}
 }]); 
 
-controllers.controller('FooterController', ['$scope', '$location', '$window', 'SocialMediaService', 'LanguageService', function($scope, $location, $window, SocialMediaService, LanguageService) {
+controllers.controller('FooterController', ['$scope', '$location', '$window', 'QueryService', function($scope, $location, $window, QueryService) {
 // {{{ Footer controller
-    $scope.socialMedias = SocialMediaService.queryAll();
-    $scope.languages = LanguageService.queryAll();
+    $scope.socialMedias = QueryService.query_socials();
+    $scope.languages = QueryService.query_languages();
 
     $scope.switchLang = function(lang) {
       var currLoc = $location.path();
@@ -74,15 +74,15 @@ controllers.controller('FooterController', ['$scope', '$location', '$window', 'S
 // }}}
 }]); 
 
-controllers.controller('MainController', ['$scope', 'CityService', 'JumbotronService', 'uiGmapGoogleMapApi', '$location',
-    function($scope, CityService, JumbotronService, uiGmapGoogleMapApi, $location) {
+controllers.controller('MainController', ['$scope', 'QueryService', 'uiGmapGoogleMapApi', '$location',
+    function($scope, QueryService, uiGmapGoogleMapApi, $location) {
 // {{{ Main page controller
         if($location.path() === '/cn') {
-            $scope.jumbotron = JumbotronService.query_cn();
-            $scope.cities = CityService.query_cn();
+            $scope.jumbotron = QueryService.query_jumbotron_cn();
+            $scope.cities = QueryService.query_cities_cn();
         } else {
-            $scope.jumbotron = JumbotronService.query();
-            $scope.cities = CityService.query();
+            $scope.jumbotron = QueryService.query_jumbotron();
+            $scope.cities = QueryService.query_cities();
         }
         $scope.cityAge = "start";
 
@@ -196,13 +196,13 @@ controllers.controller('ContactController', ['$scope', '$http', '$modal', functi
 
 }]); 
 
-controllers.controller('ContactController', ['$scope', '$http', '$modal', '$location', 'ContactService', function($scope, $http, $modal, $location, ContactService) {
+controllers.controller('ContactController', ['$scope', '$http', '$modal', '$location', 'QueryService', function($scope, $http, $modal, $location, QueryService) {
 // {{{ Contact page controller
 
     if($location.path() === '/cn/contact') {
-        $scope.content = ContactService.query_cn();
+        $scope.content = QueryService.query_contact_cn();
     } else {
-        $scope.content = ContactService.query();
+        $scope.content = QueryService.query_contact();
     }
 
     $scope.contactForm = {};
@@ -300,12 +300,12 @@ function($scope, $location, $modalInstance, modalWindow, sendStatus) {
 // }}}
 }]); 
 
-controllers.controller('AboutController', ['$scope', '$location', 'AboutService', function($scope, $location, AboutService) {
+controllers.controller('AboutController', ['$scope', '$location', 'QueryService', function($scope, $location, QueryService) {
 // {{{ About page controller
     if($location.path() === '/cn/about') {
-        $scope.abouts = AboutService.query_cn();
+        $scope.abouts = QueryService.query_abouts_cn();
     } else {
-        $scope.abouts = AboutService.query();
+        $scope.abouts = QueryService.query_abouts();
     }
 // }}}
 }]); 

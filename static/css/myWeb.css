@@ -1,9 +1,12 @@
-
-
 .myIcons {
     height: 30px;
     width: 30px;
     margin-right: 10px;
+}
+
+#socialIcons {
+    color: #ccc;
+    font-size: 2em;
 }
 
 .circle {
@@ -24,18 +27,16 @@
 }
 
 a:link {
-     text-decoration: none;   
-     color: GoldenRod;
+     color: MediumSeaGreen;
 }
 
 a:visited {
      text-decoration: none;   
-     color: Tomato;
+     color: MediumSeaGreen;
 }
 
 a:hover {
-     text-decoration: none;   
-     color: Red;
+     color: DarkSeaGreen;
 }
 
 .jumbotron {
@@ -86,9 +87,9 @@ footer {
     width: 60%;
 }
 
-.fa_customized {
+.contact_fa {
     position: relative;
-    color: MediumTurquoise;
+    color: #ccc;
     top: -3px;
 }
 
