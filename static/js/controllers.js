@@ -11,43 +11,22 @@ controllers.controller('NavController', ['$scope','$location', 'QueryService', f
         $scope.navTerms = QueryService.query_navbar();
     }
 
-    $scope.goToAbout = function() {
+    $scope.goTo = function(loc) {
         var currLoc = $location.path();
-        console.log("currLoc: " + currLoc);
 
        if (currLoc.indexOf('cn') > -1) {
-            var toLoc = "/cn/about";
+            var toLoc = "/cn/" + loc;
         } else {
-            var toLoc = "about";
+            var toLoc = loc;
         }
-        console.log("go to Loc: " + toLoc);
         $location.path(toLoc); 
     };
-    
-    $scope.goToContact = function() {
-        var currLoc = $location.path();
-        console.log("currLoc: " + currLoc);
+// }}}
+}]); 
 
-       if (currLoc.indexOf('cn') > -1) {
-            var toLoc = "/cn/contact";
-        } else {
-            var toLoc = "contact";
-        }
-        console.log("go to Loc: " + toLoc);
-        $location.path(toLoc); 
-    };
-    $scope.goToHome = function() {
-        var currLoc = $location.path();
-        console.log("currLoc: " + currLoc);
+controllers.controller('NotesController', ['$scope','$location', 'QueryService', function($scope, $location, QueryService) {
+// {{{ Notes controller
 
-       if (currLoc.indexOf('cn') > -1) {
-            var toLoc = "/cn";
-        } else {
-            var toLoc = "/";
-        }
-        console.log("go to Loc: " + toLoc);
-        $location.path(toLoc); 
-    };
 // }}}
 }]); 
 

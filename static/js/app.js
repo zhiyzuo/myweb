@@ -20,6 +20,10 @@ app.config(['$routeProvider',
         templateUrl: 'static/partials/main.html',
         controller: 'MainController'
       }).
+      when('/notes', {
+        templateUrl: 'static/partials/notes.html',
+        controller: 'NotesController'
+      }).
       when('/contact', {
         templateUrl: 'static/partials/contact.html',
         controller: 'ContactController'

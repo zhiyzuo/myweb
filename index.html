@@ -47,9 +47,10 @@
               </div>
               <div class="navbar-right">
                 <ul class="nav navbar-nav navbar-right">
-                  <li role="presentation"><a href="" ng-click="goToHome()">{{navTerms.home}}</a></li>
-                  <li role="presentation"><a href="" ng-click="goToContact()">{{navTerms.contact}}</a></li>
-                  <li role="presentation"><a href="" ng-click="goToAbout()">{{navTerms.about}}</a></li>
+                  <li role="presentation"><a href="" ng-click="goTo('home')">{{navTerms.home}}</a></li>
+                  <li role="presentation"><a href="" ng-click="goTo('notes')">{{navTerms.notes}}</a></li>
+                  <li role="presentation"><a href="" ng-click="goTo('contact')">{{navTerms.contact}}</a></li>
+                  <li role="presentation"><a href="" ng-click="goTo('about')">{{navTerms.about}}</a></li>
                 </ul>
               </div>
             </div>
@@ -64,8 +65,8 @@
 
     <hr>
 
-    <footer align="center" ng-controller="FooterController as footer">
-        <div class="row">
+    <footer ng-controller="FooterController as footer">
+        <div class="row" align="center">
             <div class="col-md-3"></div>
             <div class="col-md-6" style="color: #ccc">
                 <i class="fa fa-copyright"></i> Made by Zuo, Zhiya 2014 - 2015 &nbsp;&nbsp;
